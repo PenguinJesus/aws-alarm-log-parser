@@ -1,4 +1,3 @@
-
 var aws = require('aws-sdk'); //getting library for aws sdk
 var cwl = new aws.CloudWatchLogs(); //instantiating the CloudWatchLogs method
 var sns = new aws.SNS({ //instantiating the SNS method in eu-west-1 region
@@ -70,32 +69,3 @@ function getLogsAndSendEmail(message, metricFilterData, context) {
         }
     });
 }
-
-
-
-// function generateEmailContent(data, message) {
-//     var events = data.events;
-//     // var style = '<style> pre {color: red;} </style>';
-//     console.log("events: ", events)
-//     console.log("message type: ", events[0]["message"])
-//     console.log(".eventName: ", events[0]["message"]["eventName"]);
-//     var logData = [];
-//     for (var i in events) {
-//         var eventMessage = events[i]["message"];
-//         console.log(typeof(eventMessage))
-//         logData.push(eventMessage);
-//         console.log(logData)
-//     }
-    
-//     var date = new Date(message.StateChangeTime);
-//     var subject = ' Details for Alarm - ' + message.AlarmName + '---------------------------------';
-//     var emailContent = {
-//         alarmName: message.AlarmName,
-//         AccountID:message.AWSAccountId,
-//         Region: message.Region,
-//         AlarmTime: date.toString(),
-//         Log: logData
-//     };
-    
-//     return emailContent;
-// }
