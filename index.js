@@ -61,9 +61,8 @@ function getLogsAndSendEmail(message, metricFilterData, context) {
             var params = {
                 'Message': String(email),
                 'Subject': message.AlarmName,
-                'TopicArn':"arn:aws:sns:eu-west-1:accountNumberHere:TopicName" 
+                'TopicArn':"arn:aws:sns:region:accountNumberHere:TopicName" 
             }
-            // 'TopicArn':"arn:aws:sns:eu-west-1:069127586842:security-log-parser"
             console.log("params: ", params);
             sns.publish(params, context.done);
         }
